@@ -26,7 +26,7 @@ pipeline {
 
         stage("Docker Login") {
             steps {
-                withCredentials([string(credentialsId: 'dockerhub_pass', variable: 'DOCKER_PASS')]) {
+                withCredentials([string(credentialsId: 'docker_pass', variable: 'DOCKER_PASS')]) {
                     sh """
                     echo $DOCKER_PASS | docker login -u MANISH-GIT-25 --password-stdin
                     docker push MANISH-GIT-25/pipeline-java1:${BUILD_TAG}
